@@ -1,0 +1,46 @@
+# 잘 외워지는 문자 조합 알아보기
+ex) a = ['빨강','파랑'] 의 경우, '빨파', '빨랑','강파','강랑' 처럼 가능한 경우의 수 모두 출력하게 하고 싶음.
+
+def hangul_combi():
+    # 조합하고픈 단어 변수 생성 = a
+    a = ['목표설정','모니터링','목표조정','평가실시','결과피드백']
+    
+    # 가장 긴 길이 파악
+    maxlen = 0
+    for i in a:
+        if len(i) > int(maxlen):
+            maxlen = len(i)
+            
+    # 단어별 저장을 위한 변수 생성
+    names = []
+    for j in range(maxlen):
+        names.append("value"+str(j+1))
+    print(names)
+    
+'''''''''''''''''''''''''''''''''''''''''''''''''''
+아직 고민중: 각 변수에 각 음절별로 저장하는 것을 모르겠음.
+''''''''''''''''''''''''''''''''''''''''''''''''
+    for name in names:
+        try:
+            for k in range(maxlen):
+                for m in range(maxlen):
+                    globals()[name] = a[k][m]
+        except:
+            print('값 입력 오류 발생')
+            
+    for name in names:
+        print(name, "=", globals()[name])
+    
+hangul_combi()
+
+
+# 영어의 경우에는 조합하는 것이 그나마 쉬움
+## 그러나 원소가 2개 3개 늘어남에 따라 포문을 자동적으로 늘리는 방안은 없을까?
+
+jo = ['a','b']
+hab = []
+for i in jo:
+    for j in jo:
+        hab.append(i+j)
+print(hab)
+
